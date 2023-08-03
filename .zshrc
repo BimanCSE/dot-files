@@ -130,3 +130,13 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # add the alias for clear
 alias c='clear'
+
+# set your termial to work with vim key bindings
+bindkey -v
+
+
+# chnage default key binding from normal to insert and vice-versa
+bindkey kj vi-cmd-mode
+bindkey jk vi-cmd-mode
+
+
