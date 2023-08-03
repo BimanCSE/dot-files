@@ -140,3 +140,29 @@ bindkey kj vi-cmd-mode
 bindkey jk vi-cmd-mode
 
 
+
+
+###########set auto complete
+#Autocomplete
+autoload -U compinit -C
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit -C
+_comp_options+=(globdots)
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(
+	end-of-line
+	vi-env-of-line
+	vi-add-eol
+)
+
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
+	forward-word
+	emacs-forward-word
+	vi-forward-char
+	vi-forward-word
+	vi-forward-word-end
+	vi-forward-blank-word
+	vi-forward-blank-word-end
+	vi-find-next-char
+	vi-find-next-char-skip
+)
