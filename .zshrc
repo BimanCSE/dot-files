@@ -128,4 +128,5 @@ SAVEHIST=10000000
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 
-
+# add the alias for clear
+alias c='clear'
