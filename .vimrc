@@ -22,24 +22,18 @@ set backspace=indent,eol,start
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdcommenter'
 Plug 'zhou13/vim-easyescape'
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-python' 
 Plug 'neoclide/coc-snippets'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'PhilRunninger/nerdtree-visual-selection'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ap/vim-css-color'
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+Plug 'ptzz/lf.vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 colorscheme murphy
 let g:cocPlugInstall = 'yarn install --frozen-lockfile'
@@ -50,11 +44,6 @@ let g:airline#extension#tabline#enable=1
 let g:airline#extension#tabline#left_sep=' '
 let g:airline#extension#tabline#left_alt_sep='|'
 let g:airline#extension#tabline#formatter='unique_tail'
-nmap <C-f> :NERDTreeToggle<CR>
-" Start NERDTree and leave the cursor in it.
-autocmd VimEnter * NERDTree | wincmd p
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " shorcutting the split navigation
 " left window navigation
 map <C-h> <C-w>h
@@ -65,8 +54,6 @@ map <C-k> <C-w>k
 " down window navigation
 map <C-j> <C-w>j
 
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
 let g:fzf_layout = { 'window': {'width': 0.85, 'height':0.85} }
 let $FZF_DEFAULT_OPTS='--reverse'
 let g:fzf_action = {
@@ -247,3 +234,6 @@ nmap <silent> bl : call CocAction('format')
 " vim Escep key bindings
 
 let g:easyescape_chars = { "j": 1, "k": 1 }
+" vim configuration for lf 
+let g:lf_map_keys = 0
+map <leader>f :LF<Cf>

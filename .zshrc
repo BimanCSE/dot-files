@@ -133,7 +133,8 @@ alias c='clear'
 
 # set your termial to work with vim key bindings
 bindkey -v
-
+bindkey kj vi-cmd-mode
+bindkey jk vi-cmd-mode
 
 
 ###########set auto complete
