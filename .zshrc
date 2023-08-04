@@ -174,3 +174,49 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -v '^?' backward-delete-char
+
+
+
+# for better version of fzf
+lfcd () {
+	tmp="$(mktemp)"
+	lf -last-dir-path="$tmp" "$@"
+	if [ -f "$tmp" ]; then
+	    dir="$(cat "$tmp")"
+	    rm -f "$tmp"
+	    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+	fi
+}
+bindkey -s '^p' ' lfcd\n'
+function cd {
+    builtin cd "$@" && ls -F
+}
+
+bindkey -s "\C-f" ' fzf_out=$(fzf --layout=reverse --bind K:preview-up,J:preview-down,H:preview-page-up,L:preview-page-down --preview  \"bat --style=numbers --color=always --line-range :500 {}\"); [[ -z $fzf_out ]] && : || vim $fzf_out\n print -S "vim $fzf_out"\n'
+export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+export FZF_DEFAULT_OPT='--layout=reverse --height=60% --bind up:preview-up,down:preview-down'
+# Interactive search.
+# # Usage: ff or ff <folder>.
+# # Separate searchterms by | without space
+ff() {
+[[ -n $1 ]] && cd $1 || # go to provided folder or noop
+RG_DEFAULT_COMMAND="rg  -i -l --hidden --no-ignore-vcs"
+selected=$(
+FZF_DEFAULT_COMMAND="rg  --files --hidden --follow" fzf \
+-m \
+-e \
+--ansi \
+--phony \
+--reverse \
+--bind "ctrl-a:select-all" \
+--bind "f12:execute-silent:(subl -b {})" \
+	--bind "change:reload:$RG_DEFAULT_COMMAND {q} || true" \
+	--preview "rg -i --pretty --context 2 {q} {}" | cut -d":" -f1,2
+)
+[[ -n $selected ]] && vim $selected # open multiple files in editor
+}
+bindkey -s "\C-g" ' ff\n'
+
+
+#For ipython shell
+alias ipython='python -m IPython --TerminalInteractiveShell.editing_mode=vi --no-autoindent'
