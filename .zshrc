@@ -135,12 +135,6 @@ alias c='clear'
 bindkey -v
 
 
-# chnage default key binding from normal to insert and vice-versa
-bindkey kj vi-cmd-mode
-bindkey jk vi-cmd-mode
-
-
-
 
 ###########set auto complete
 #Autocomplete

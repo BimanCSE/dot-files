@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
+Plug 'zhou13/vim-easyescape'
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-python' 
 Plug 'neoclide/coc-snippets'
@@ -239,4 +240,10 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 "Install follwing packages
 "CocInstall coc-tsserver coc-eslint coc-json coc-prettier coc-css coc-html coc-snippets
+
 nmap <silent> bl : call CocAction('format')
+
+
+" vim Escep key bindings
+
+let g:easyescape_chars = { "j": 1, "k": 1 }
