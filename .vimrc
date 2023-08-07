@@ -34,6 +34,7 @@ Plug 'ap/vim-css-color'
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 colorscheme murphy
 let g:cocPlugInstall = 'yarn install --frozen-lockfile'
@@ -237,3 +238,9 @@ let g:easyescape_chars = { "j": 1, "k": 1 }
 " vim configuration for lf 
 let g:lf_map_keys = 0
 map <leader>f :LF<Cf>
+" black configuration
+augroup black_on_save
+	autocmd!
+	autocmd BufWritePre *.py Black
+augroup end
+nnoremap <F9> :Black<CR>

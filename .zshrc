@@ -215,3 +215,5 @@ bindkey -s "\C-g" ' ff\n'
 
 #For ipython shell
 alias ipython='python -m IPython --TerminalInteractiveShell.editing_mode=vi --no-autoindent'
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
