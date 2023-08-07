@@ -239,6 +239,7 @@ let g:easyescape_chars = { "j": 1, "k": 1 }
 let g:lf_map_keys = 0
 map <leader>f :LF<Cf>
 " black configuration
+let g:black_use_virtualenv = 0
 augroup black_on_save
 	autocmd!
 	autocmd BufWritePre *.py Black
