@@ -245,3 +245,6 @@ augroup black_on_save
 	autocmd BufWritePre *.py Black
 augroup end
 nnoremap <F9> :Black<CR>
+" vim escape alternatives
+inoremap jk <esc>
+inoremap kj <esc>
