@@ -1,6 +1,6 @@
 " Options
 set encoding=utf8
-set clipboard=unnamedplus " Enables the clipboard between Vim/Neovim and other applications.
+set clipboard=unnamed " Enables the clipboard between Vim/Neovim and other applications.
 set completeopt=noinsert,menuone,noselect " Modifies the auto-complete menu to behave more like an IDE.
 set cursorline " Highlights the current line in the editor
 set hidden " Hide unused buffers
