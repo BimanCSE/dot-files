@@ -36,11 +36,8 @@ Plug 'ptzz/lf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
-colorscheme murphy
+colorscheme molokai
 let g:cocPlugInstall = 'yarn install --frozen-lockfile'
-let g:bargreybars_auto=0
-let g:airline_solorized_bg='dark'
-let g:airline_powerline_fonts=1
 let g:airline#extension#tabline#enable=1
 let g:airline#extension#tabline#left_sep=' '
 let g:airline#extension#tabline#left_alt_sep='|'
