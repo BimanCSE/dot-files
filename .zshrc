@@ -217,3 +217,5 @@ bindkey -s "\C-g" ' ff\n'
 alias ipython='python -m IPython --TerminalInteractiveShell.editing_mode=vi --no-autoindent'
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# chnage the autosugesstion highlighet color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=red,bg=#ff00ff,bold" 
